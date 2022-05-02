@@ -1,4 +1,5 @@
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
 #include "heylib/hello.h"
 
 #define STRINGIFY(x) #x
@@ -35,6 +36,11 @@ PYBIND11_MODULE(_core, m) {
 
         Some other explanation about the subtract function.
     )pbdoc");
+
+	py::class_<hey::Hey>(m, "Hey", R"pbdoc(
+		Example of integrating a third-party C++ lib with Pybind11
+		)pbdoc")
+		.def(py::init<int, std::string&>());
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
