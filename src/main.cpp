@@ -40,7 +40,9 @@ PYBIND11_MODULE(_core, m) {
 	py::class_<hey::Hey>(m, "Hey", R"pbdoc(
 		Example of integrating a third-party C++ lib with Pybind11
 		)pbdoc")
-		.def(py::init<int, std::string&>());
+		.def(py::init<int, std::string&>())
+		.def_readwrite("count", &hey::Hey::count)
+		.def_readwrite("greeting", &hey::Hey::greeting);
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
