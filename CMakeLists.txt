@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15...3.22)
 
 project(scikit_build_example VERSION "0.0.1")
 
-option(HEY_BUILD_TESTS "Build Hey's unit tests" ON)
+option(HEY_BUILD_TESTS "Build Hey's unit tests" OFF)
 option(HEY_BUILD_PYTHON "Build Hey's python package" ON)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
